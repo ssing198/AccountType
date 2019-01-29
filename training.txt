@@ -1,0 +1,78 @@
+https://capgemini-cloud.atlassian.net/browse/SSB-119
+
+
+http://35.154.161.204/ukannan/StargateDDABankingApp/tree/master/PCF/Stargate2018Batch03
+
+https://capgemini-cloud.atlassian.net/browse/SSB-241
+
+
+
+https://memorynotfound.com/spring-ws-consume-soap-service-wsdl/ 
+
+u need to include soap consumption part in the same project
+
+
+step1: use jaxb dependency and consume wsdl. It will generate all the req classes
+
+step2: config the beans marshalling and unmarshalling 
+
+step3: consume one endpoint in developed code..... and return the response..
+
+<dependency>
+			<groupId>wsdl4j</groupId>
+			<artifactId>wsdl4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+		</dependency> 
+
+-===  <plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<version>0.14.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<outputDirectory>/src/main/java</outputDirectory>
+					<clearOutputDir>false</clearOutputDir>
+					<schemas>
+						<schema>
+							<url>http://34.236.109.151:8000/ws/bankdetails.wsdl</url>
+						</schema>
+					</schemas>
+				</configuration>
+			</plugin>	
+			
+		</plugins> 
+
+
+
+change the plugin in pom.xml so that it will generate inside package name specified and package will generate inside target folder...
+
+
+
+
+==========================================
+dpcups
+
+spring.datasource.username=${vcap.services.UserService.credentials.Username}
+spring.datasource.password=${vcap.services.UserService.credentials.Password}   in sts or propeties file)
+
+
+=========================
+sonarlint
+
+https://www.opencodez.com/how-to-guide/improve-code-quality-with-sonarlint.htm
+
